@@ -56,13 +56,13 @@ class App:
         root.resizable(width=False, height=False)
 
         GLabel_60=tk.Label(root)
-        GLabel_60["activebackground"] = "#94d4d0"
-        GLabel_60["activeforeground"] = "#94d4d0"
+        GLabel_60["activebackground"] = "#53277E"
+        GLabel_60["activeforeground"] = "#53277E"
         GLabel_60["anchor"] = "center"
-        GLabel_60["bg"] = "#94d4d0"
+        GLabel_60["bg"] = "#53277E"
         ft = tkFont.Font(family='Times',size=10)
         GLabel_60["font"] = ft
-        GLabel_60["fg"] = "#94d4d0"
+        GLabel_60["fg"] = "#53277E"
         GLabel_60["justify"] = "center"
         GLabel_60["text"] = "background"
         GLabel_60.place(x=0,y=0,width=1015,height=570)

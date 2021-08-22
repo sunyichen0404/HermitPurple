@@ -1,4 +1,3 @@
-import datetime
 import glob
 import os
 import os.path
@@ -10,6 +9,7 @@ from watchdog.events import FileSystemEventHandler
 
 
 folder_to_track = os.path.expanduser("~/Desktop")
+
 class MyHandler(FileSystemEventHandler):
     def on_created(self, event):
         file_type = '/*png'
@@ -28,18 +28,12 @@ class MyHandler(FileSystemEventHandler):
 class game:
     def __init__(self, name):
         self.name = name
-        self.time_played = 0
-        self.start_time = datetime.time(0,0,0)
-        self.end_time = datetime.time(0,0,0)
         self.desktop_path = folder_to_track
         self.game_path = self.desktop_path + '/' + self.name
         os.chdir(self.desktop_path)
 
     def new_game(self):
         os.mkdir(self.game_path)
-
-    def start_session(self):
-        self.start_time = datetime.datetime.now()
 
 
 class App:
@@ -153,7 +147,7 @@ class App:
         global app
         app = game(self.GLineEdit_534.get())
         app.new_game()
-        app.start_session()
+
         event_handler = MyHandler()
         observer = Observer()
         observer.schedule(event_handler, folder_to_track, recursive=True)
@@ -175,7 +169,9 @@ class App:
     # Add
     def GButton_680_command(self):
         global tag
-        tag = self.GLineEdit_583.get()
+        tag_old = self.GLineEdit_583.get()
+        tag_new = tag_old.replace('/','')
+        tag = tag_new.replace('\'','')
 
 
 if __name__ == "__main__":
